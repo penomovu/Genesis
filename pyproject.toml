@@ -1,0 +1,17 @@
+[project]
+name = "seedworld"
+version = "0.1.0"
+description = "Seed-based, atomic framework for procedurally generating coherent video-game blueprints"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "MIT" }
+authors = [{ name = "cto.new" }]
+
+[project.scripts]
+seedworld = "seedworld.__main__:main"
+
+[tool.ruff]
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I"]
