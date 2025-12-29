@@ -1,0 +1,468 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>SeedWorld Generator</title>
+    <style>
+      :root {
+        color-scheme: light dark;
+        --bg: #0b0f19;
+        --panel: #121a2a;
+        --text: #e6edf3;
+        --muted: #9fb0c3;
+        --accent: #6ee7ff;
+        --border: rgba(255, 255, 255, 0.12);
+        --error: #ff6b6b;
+      }
+
+      body {
+        margin: 0;
+        font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica,
+          Arial, "Apple Color Emoji", "Segoe UI Emoji";
+        background: radial-gradient(1200px 800px at 15% 15%, #14213d 0%, var(--bg) 45%),
+          radial-gradient(900px 700px at 80% 30%, #0f2d2c 0%, var(--bg) 55%);
+        color: var(--text);
+      }
+
+      header {
+        padding: 28px 18px 10px;
+        max-width: 1100px;
+        margin: 0 auto;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 22px;
+        letter-spacing: 0.4px;
+      }
+
+      p.sub {
+        margin: 6px 0 0;
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.5;
+      }
+
+      main {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 14px 18px 48px;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      .panel {
+        background: rgba(18, 26, 42, 0.78);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 14px;
+        backdrop-filter: blur(12px);
+      }
+
+      .controls {
+        display: grid;
+        grid-template-columns: 1fr auto auto;
+        gap: 10px;
+        align-items: end;
+      }
+
+      label {
+        display: block;
+        font-size: 12px;
+        color: var(--muted);
+        margin-bottom: 6px;
+      }
+
+      input[type="text"] {
+        width: 100%;
+        padding: 10px 12px;
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.25);
+        color: var(--text);
+        outline: none;
+      }
+
+      input[type="text"]:focus {
+        border-color: rgba(110, 231, 255, 0.5);
+        box-shadow: 0 0 0 3px rgba(110, 231, 255, 0.12);
+      }
+
+      button {
+        border-radius: 10px;
+        border: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.2);
+        color: var(--text);
+        padding: 10px 12px;
+        cursor: pointer;
+      }
+
+      button.primary {
+        background: linear-gradient(
+          90deg,
+          rgba(110, 231, 255, 0.22),
+          rgba(78, 255, 173, 0.18)
+        );
+        border-color: rgba(110, 231, 255, 0.35);
+      }
+
+      button:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 14px;
+      }
+
+      @media (min-width: 980px) {
+        .grid {
+          grid-template-columns: 1.1fr 0.9fr;
+          align-items: start;
+        }
+      }
+
+      .kvs {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .kv {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        padding: 10px 12px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      .kv .k {
+        font-size: 11px;
+        color: var(--muted);
+      }
+
+      .kv .v {
+        margin-top: 4px;
+        font-size: 14px;
+      }
+
+      .section-title {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+
+      .section-title h2 {
+        margin: 0;
+        font-size: 14px;
+        color: var(--muted);
+        font-weight: 600;
+      }
+
+      .pill {
+        font-size: 12px;
+        color: var(--muted);
+        border: 1px solid var(--border);
+        border-radius: 999px;
+        padding: 4px 10px;
+        background: rgba(0, 0, 0, 0.18);
+      }
+
+      pre {
+        margin: 0;
+        overflow: auto;
+        max-height: 70vh;
+        border-radius: 12px;
+        border: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.26);
+        padding: 12px;
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .error {
+        color: var(--error);
+        font-size: 13px;
+        margin-top: 8px;
+        white-space: pre-wrap;
+      }
+
+      .list {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+
+      .item {
+        padding: 10px 12px;
+        border-top: 1px solid var(--border);
+        background: rgba(0, 0, 0, 0.12);
+      }
+
+      .item:first-child {
+        border-top: none;
+      }
+
+      .item .name {
+        font-weight: 650;
+        font-size: 13px;
+      }
+
+      .item .desc {
+        margin-top: 6px;
+        color: var(--muted);
+        font-size: 12px;
+        line-height: 1.45;
+      }
+
+      .tags {
+        margin-top: 8px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .tag {
+        font-size: 11px;
+        padding: 3px 8px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        color: var(--muted);
+        background: rgba(0, 0, 0, 0.2);
+      }
+
+      .footer {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 18px 22px;
+        color: var(--muted);
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>SeedWorld — Web Generator</h1>
+      <p class="sub">
+        Enter a seed and generate a deterministic game blueprint (spec JSON). Use this UI to
+        explore mechanics, world graph, and quests.
+      </p>
+    </header>
+
+    <main>
+      <div class="panel">
+        <div class="controls">
+          <div>
+            <label for="seed">Seed</label>
+            <input id="seed" type="text" placeholder="e.g. 104729" />
+          </div>
+          <button id="randomSeedBtn" type="button">Random seed</button>
+          <button id="generateBtn" class="primary" type="button">Generate</button>
+        </div>
+        <div id="error" class="error" style="display: none"></div>
+      </div>
+
+      <div class="grid">
+        <div class="panel">
+          <div class="section-title">
+            <h2>Overview</h2>
+            <div id="titlePill" class="pill">No spec generated yet</div>
+          </div>
+          <div class="kvs">
+            <div class="kv"><div class="k">Title</div><div class="v" id="title">—</div></div>
+            <div class="kv"><div class="k">Seed</div><div class="v" id="seedOut">—</div></div>
+            <div class="kv"><div class="k">Tone</div><div class="v" id="tone">—</div></div>
+            <div class="kv"><div class="k">Lethality</div><div class="v" id="lethality">—</div></div>
+            <div class="kv"><div class="k">Systemic complexity</div><div class="v" id="complexity">—</div></div>
+            <div class="kv"><div class="k">World size</div><div class="v" id="worldSize">—</div></div>
+          </div>
+
+          <div style="height: 14px"></div>
+          <div class="section-title">
+            <h2>Mechanics</h2>
+            <div id="mechanicsCount" class="pill">—</div>
+          </div>
+          <div id="mechanics" class="list"></div>
+
+          <div style="height: 14px"></div>
+          <div class="section-title">
+            <h2>Locations</h2>
+            <div id="locationsCount" class="pill">—</div>
+          </div>
+          <div id="locations" class="list"></div>
+
+          <div style="height: 14px"></div>
+          <div class="section-title">
+            <h2>Quest</h2>
+            <div id="questCount" class="pill">—</div>
+          </div>
+          <div id="quests" class="list"></div>
+        </div>
+
+        <div class="panel">
+          <div class="section-title">
+            <h2>Raw JSON</h2>
+            <button id="copyBtn" type="button">Copy</button>
+          </div>
+          <pre id="json">{
+  "hint": "Click Generate to produce a GameSpec JSON document."
+}</pre>
+        </div>
+      </div>
+    </main>
+
+    <div class="footer">Tip: The generator is deterministic—same seed yields the same blueprint.</div>
+
+    <script>
+      const $ = (id) => document.getElementById(id);
+
+      function setError(msg) {
+        const el = $("error");
+        if (!msg) {
+          el.style.display = "none";
+          el.textContent = "";
+          return;
+        }
+        el.style.display = "block";
+        el.textContent = msg;
+      }
+
+      function safeJson(obj) {
+        return JSON.stringify(obj, null, 2);
+      }
+
+      function renderList(container, items, mapper) {
+        container.innerHTML = "";
+        if (!items || items.length === 0) {
+          container.innerHTML = '<div class="item"><div class="desc">—</div></div>';
+          return;
+        }
+        for (const it of items) {
+          const node = document.createElement("div");
+          node.className = "item";
+          node.innerHTML = mapper(it);
+          container.appendChild(node);
+        }
+      }
+
+      function tagHtml(tags) {
+        if (!tags || tags.length === 0) return "";
+        return `<div class="tags">${tags
+          .map((t) => `<span class="tag">${t}</span>`)
+          .join("")}</div>`;
+      }
+
+      function setLoading(isLoading) {
+        $("generateBtn").disabled = isLoading;
+        $("randomSeedBtn").disabled = isLoading;
+      }
+
+      async function randomSeed() {
+        setError(null);
+        const res = await fetch("/api/random-seed");
+        const data = await res.json();
+        $("seed").value = String(data.seed);
+      }
+
+      async function generateSpec() {
+        setError(null);
+        setLoading(true);
+        try {
+          const seedValue = $("seed").value.trim();
+
+          const payload = {};
+          if (seedValue !== "") payload.seed = seedValue;
+
+          const res = await fetch("/api/generate", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+
+          const data = await res.json();
+          if (!res.ok) {
+            setError(data.error || "Request failed");
+            return;
+          }
+
+          $("json").textContent = safeJson(data);
+
+          $("title").textContent = data.title ?? "—";
+          $("seedOut").textContent = data.seed ?? "—";
+
+          const constants = data.constants || {};
+          $("tone").textContent = constants.tone ?? "—";
+          $("lethality").textContent = constants.lethality ?? "—";
+          $("complexity").textContent = constants.systemic_complexity ?? "—";
+          $("worldSize").textContent = constants.world_size ?? "—";
+
+          $("titlePill").textContent = data.title ? `Generated: ${data.title}` : "Generated";
+
+          const mechanics = data.mechanics || [];
+          $("mechanicsCount").textContent = `${mechanics.length} total`;
+          renderList($("mechanics"), mechanics, (m) => {
+            const deps = m.depends_on ? tagHtml(m.depends_on.map((d) => `depends: ${d}`)) : "";
+            return `
+              <div class="name">${m.name}</div>
+              <div class="desc">${m.description || ""}</div>
+              ${deps}
+            `;
+          });
+
+          const locations = data.world?.locations || [];
+          $("locationsCount").textContent = `${locations.length} total`;
+          renderList($("locations"), locations, (loc) => {
+            const tags = [];
+            for (const t of loc.tags || []) tags.push(`tag: ${t}`);
+            for (const i of loc.items || []) tags.push(`item: ${i}`);
+            for (const h of loc.hazards || []) tags.push(`hazard: ${h}`);
+            return `
+              <div class="name">${loc.name} <span style="color: var(--muted); font-weight: 500">(${loc.id})</span></div>
+              ${tagHtml(tags)}
+            `;
+          });
+
+          const quests = data.quests || [];
+          $("questCount").textContent = `${quests.length} total`;
+          renderList($("quests"), quests, (q) => {
+            const steps = (q.steps || [])
+              .map(
+                (s, idx) =>
+                  `<div class="desc"><span style="color: var(--text)">Step ${idx + 1}:</span> ${
+                    s.description || s.id
+                  }</div>`
+              )
+              .join("");
+
+            return `
+              <div class="name">${q.name}</div>
+              <div class="desc">${q.objective || ""}</div>
+              ${steps}
+            `;
+          });
+        } catch (e) {
+          setError(String(e));
+        } finally {
+          setLoading(false);
+        }
+      }
+
+      $("randomSeedBtn").addEventListener("click", randomSeed);
+      $("generateBtn").addEventListener("click", generateSpec);
+      $("copyBtn").addEventListener("click", async () => {
+        try {
+          await navigator.clipboard.writeText($("json").textContent);
+        } catch {
+          setError("Copy failed (clipboard permission denied). Select and copy manually.");
+        }
+      });
+
+      randomSeed().then(generateSpec);
+    </script>
+  </body>
+</html>

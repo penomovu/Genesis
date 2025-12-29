@@ -9,6 +9,13 @@ authors = [{ name = "cto.new" }]
 
 [project.scripts]
 seedworld = "seedworld.__main__:main"
+seedworld-web = "seedworld.web:main"
+
+[tool.setuptools.packages.find]
+include = ["seedworld*"]
+
+[tool.setuptools.package-data]
+"seedworld.webui" = ["*.html"]
 
 [tool.ruff]
 line-length = 100

@@ -17,6 +17,8 @@ The `seedworld.generator.generate()` function returns a `GameSpec` that can be s
 
 ## Quickstart
 
+### CLI
+
 ```bash
 python -m seedworld 104729
 ```
@@ -26,6 +28,22 @@ or
 ```bash
 seedworld 104729
 ```
+
+### Web Interface
+
+Launch the web interface to generate and explore game blueprints interactively:
+
+```bash
+python -m seedworld.web
+```
+
+or (after installation):
+
+```bash
+seedworld-web
+```
+
+Then open your browser to `http://localhost:5000`
 
 ## Output
 
