@@ -1,0 +1,567 @@
+{
+  "seed": 104729,
+  "title": "Flourishing Conquest",
+  "genre": [
+    "procedural",
+    "strategy"
+  ],
+  "version": "2.0",
+  "cosmological_constants": {
+    "primary_dimensions": {
+      "entropy": 0.8936558456670696,
+      "fertility": 0.8880404844036095,
+      "volatility": 0.8822924968832397,
+      "coherence": 0.8764132590655918,
+      "revelation": 0.8704041951814097
+    },
+    "derived_constants": {
+      "resource_constraint": 0.1119595155963905,
+      "emergent_complexity": 0.10316041642303315,
+      "chaos_threshold": 0.7732528426425586,
+      "time_dilation": 0.741746153334142,
+      "discovery_rate": 0.6957447357386107
+    },
+    "categorical": {
+      "energy_regime": "growth",
+      "information_theory": "complete",
+      "temporal_structure": "accelerating"
+    }
+  },
+  "framework": {
+    "primary_resource_types": [
+      "cumulative",
+      "renewable",
+      "flow"
+    ],
+    "resource_count_min": 4,
+    "resource_count_max": 7,
+    "time_pressure": 0.4,
+    "pacing_variety": 0.6,
+    "information_asymmetry": 0.4,
+    "discovery_importance": 0.5,
+    "mechanic_depth_min": 4,
+    "mechanic_depth_max": 6,
+    "coupling_density": 0.9,
+    "goal_clarity": 0.4,
+    "solution_variety": 0.9,
+    "narrative_emergence": 0.6,
+    "stakes_magnitude": 0.7
+  },
+  "playability_metrics": {
+    "win_rate": 0.94,
+    "strategy_diversity": 1.0,
+    "balance_score": 0.19999999999999996
+  },
+  "atoms": {
+    "resources": [
+      {
+        "name": "experience",
+        "resource_type": "cumulative",
+        "initial": 0.0,
+        "min": 0.0,
+        "max": Infinity,
+        "decay_rate": 0.0,
+        "renew_rate": 0.0
+      },
+      {
+        "name": "moral",
+        "resource_type": "renewable",
+        "initial": 43.93553510640484,
+        "min": 0.0,
+        "max": 100.0,
+        "decay_rate": 0.0,
+        "renew_rate": 4.235445471067198
+      },
+      {
+        "name": "production",
+        "resource_type": "flow",
+        "initial": 7.252461612529007,
+        "min": 0.0,
+        "max": 36.26230806264503,
+        "decay_rate": 0.0,
+        "renew_rate": 0.0
+      },
+      {
+        "name": "moral",
+        "resource_type": "renewable",
+        "initial": 30.00652848880621,
+        "min": 0.0,
+        "max": 100.0,
+        "decay_rate": 0.0,
+        "renew_rate": 1.3150527445824536
+      }
+    ],
+    "boolean_states": [
+      {
+        "name": "key_0",
+        "initial": false,
+        "persistence": "session"
+      },
+      {
+        "name": "flag_1",
+        "initial": false,
+        "persistence": "location"
+      },
+      {
+        "name": "flag_2",
+        "initial": false,
+        "persistence": "session"
+      },
+      {
+        "name": "door_3",
+        "initial": false,
+        "persistence": "location"
+      },
+      {
+        "name": "buff_4",
+        "initial": false,
+        "persistence": "session"
+      }
+    ],
+    "perception": [
+      {
+        "name": "see_experience",
+        "observed_property": "experience",
+        "visibility": "always",
+        "precision": "exact",
+        "cost": 0.12959580481859034
+      },
+      {
+        "name": "see_moral",
+        "observed_property": "moral",
+        "visibility": "always",
+        "precision": "exact",
+        "cost": 0.12959580481859034
+      },
+      {
+        "name": "see_production",
+        "observed_property": "production",
+        "visibility": "always",
+        "precision": "exact",
+        "cost": 0.12959580481859034
+      },
+      {
+        "name": "see_moral",
+        "observed_property": "moral",
+        "visibility": "always",
+        "precision": "exact",
+        "cost": 0.12959580481859034
+      }
+    ],
+    "affordances": [
+      {
+        "name": "use_experience",
+        "requires_resources": {},
+        "grants_resources": {
+          "experience": -5.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 0.0,
+        "cooldown": 1.0
+      },
+      {
+        "name": "acquire_experience",
+        "requires_resources": {},
+        "grants_resources": {
+          "experience": 10.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 1.0,
+        "cooldown": 0.0
+      },
+      {
+        "name": "use_moral",
+        "requires_resources": {},
+        "grants_resources": {
+          "moral": -5.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 0.0,
+        "cooldown": 1.0
+      },
+      {
+        "name": "acquire_moral",
+        "requires_resources": {},
+        "grants_resources": {
+          "moral": 10.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 1.0,
+        "cooldown": 0.0
+      },
+      {
+        "name": "use_production",
+        "requires_resources": {},
+        "grants_resources": {
+          "production": -5.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 0.0,
+        "cooldown": 1.0
+      },
+      {
+        "name": "acquire_production",
+        "requires_resources": {},
+        "grants_resources": {
+          "production": 10.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 1.0,
+        "cooldown": 0.0
+      },
+      {
+        "name": "use_moral",
+        "requires_resources": {},
+        "grants_resources": {
+          "moral": -5.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 0.0,
+        "cooldown": 1.0
+      },
+      {
+        "name": "acquire_moral",
+        "requires_resources": {},
+        "grants_resources": {
+          "moral": 10.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 1.0,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_key_0",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'key_0'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_flag_1",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'flag_1'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_flag_2",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'flag_2'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_door_3",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'door_3'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_buff_4",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'buff_4'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      }
+    ],
+    "feedback": [
+      {
+        "name": "experience_change",
+        "trigger_type": "on_change",
+        "target_property": "experience",
+        "modality": "haptic",
+        "intensity": 0.43520209759070483
+      },
+      {
+        "name": "moral_change",
+        "trigger_type": "on_change",
+        "target_property": "moral",
+        "modality": "haptic",
+        "intensity": 0.43520209759070483
+      },
+      {
+        "name": "production_change",
+        "trigger_type": "on_change",
+        "target_property": "production",
+        "modality": "haptic",
+        "intensity": 0.43520209759070483
+      },
+      {
+        "name": "moral_change",
+        "trigger_type": "on_change",
+        "target_property": "moral",
+        "modality": "haptic",
+        "intensity": 0.43520209759070483
+      }
+    ],
+    "transitions": [
+      {
+        "name": "moral_renew",
+        "condition": "always",
+        "transition_type": "linear",
+        "source": "moral",
+        "target": null,
+        "delta": 3.141625385820607,
+        "rate": 0.0,
+        "threshold": 0.0,
+        "probability": 1.0
+      },
+      {
+        "name": "moral_renew",
+        "condition": "always",
+        "transition_type": "linear",
+        "source": "moral",
+        "target": null,
+        "delta": 0.9754353147255408,
+        "rate": 0.0,
+        "threshold": 0.0,
+        "probability": 1.0
+      }
+    ],
+    "temporals": [
+      {
+        "name": "opportunity_window",
+        "type": "window",
+        "duration": 7.417461533341419,
+        "repeats": true,
+        "decay": 0.1
+      }
+    ]
+  },
+  "emergent_system": {
+    "name": "EmergentSystem",
+    "complexity": 10,
+    "is_stable": false,
+    "feedback_loops": [
+      {
+        "name": "resource_loop_moral",
+        "loop_type": "positive",
+        "primary_resource": "moral",
+        "equilibria": [
+          100.0
+        ]
+      },
+      {
+        "name": "resource_loop_moral",
+        "loop_type": "positive",
+        "primary_resource": "moral",
+        "equilibria": [
+          100.0
+        ]
+      }
+    ],
+    "attractors": [
+      {
+        "name": "moral_maximized",
+        "center_state": {
+          "moral": 100.0
+        },
+        "basin_depth": 56.06446489359516,
+        "stability": "stable",
+        "reward": 1.0
+      },
+      {
+        "name": "production_maximized",
+        "center_state": {
+          "production": 36.26230806264503
+        },
+        "basin_depth": 29.009846450116026,
+        "stability": "stable",
+        "reward": 1.0
+      },
+      {
+        "name": "moral_maximized",
+        "center_state": {
+          "moral": 100.0
+        },
+        "basin_depth": 69.99347151119379,
+        "stability": "stable",
+        "reward": 1.0
+      }
+    ],
+    "critical_events": [
+      {
+        "name": "resource_loop_moral_phase_change",
+        "trigger_condition": "moral crosses 100.0",
+        "hysteresis": 0.15
+      },
+      {
+        "name": "resource_loop_moral_phase_change",
+        "trigger_condition": "moral crosses 100.0",
+        "hysteresis": 0.15
+      }
+    ]
+  },
+  "mechanics": [
+    {
+      "name": "Positive Loop: moral",
+      "description": "A LoopType.POSITIVE feedback loop centered on moral. Stable equilibria at [100.0].",
+      "actions": [
+        "use_moral",
+        "acquire_moral"
+      ],
+      "rules": [
+        "linear: moral with rate 0.000",
+        "linear: moral with rate 0.000"
+      ],
+      "feedback": [
+        "haptic feedback on on_change (intensity: 0.44)",
+        "haptic feedback on on_change (intensity: 0.44)"
+      ],
+      "depends_on": []
+    }
+  ],
+  "world": {
+    "locations": [
+      {
+        "id": "hub",
+        "name": "Central Hub",
+        "tags": [
+          "safe_zone",
+          "spawn"
+        ],
+        "items": [
+          "experience",
+          "moral"
+        ],
+        "hazards": []
+      },
+      {
+        "id": "zone_0",
+        "name": "Resource Zone 0",
+        "tags": [
+          "resource"
+        ],
+        "items": [
+          "moral"
+        ],
+        "hazards": []
+      },
+      {
+        "id": "zone_1",
+        "name": "Resource Zone 1",
+        "tags": [
+          "resource"
+        ],
+        "items": [],
+        "hazards": [
+          "hazard_production"
+        ]
+      },
+      {
+        "id": "zone_2",
+        "name": "Resource Zone 2",
+        "tags": [
+          "resource"
+        ],
+        "items": [
+          "moral"
+        ],
+        "hazards": []
+      }
+    ],
+    "edges": [
+      {
+        "src": "hub",
+        "dst": "zone_1",
+        "gate": null
+      },
+      {
+        "src": "hub",
+        "dst": "zone_2",
+        "gate": null
+      },
+      {
+        "src": "hub",
+        "dst": "zone_3",
+        "gate": null
+      },
+      {
+        "src": "zone_1",
+        "dst": "zone_2",
+        "gate": {
+          "kind": "soft",
+          "requirement": "moral",
+          "rationale": "Phase transition requires moral threshold: moral crosses 100.0"
+        }
+      },
+      {
+        "src": "zone_2",
+        "dst": "zone_3",
+        "gate": null
+      },
+      {
+        "src": "zone_3",
+        "dst": "zone_4",
+        "gate": {
+          "kind": "soft",
+          "requirement": "moral",
+          "rationale": "Phase transition requires moral threshold: moral crosses 100.0"
+        }
+      }
+    ]
+  },
+  "quests": [
+    {
+      "name": "Primary Objective",
+      "objective": "Reach the Primary Objective state: {'moral': 100.0}",
+      "steps": [
+        {
+          "id": "acquire_moral",
+          "description": "Acquire sufficient moral",
+          "requires": [],
+          "grants": [
+            "moral"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Secondary Objective 1",
+      "objective": "Reach the Secondary Objective 1 state: {'production': 36.26230806264503}",
+      "steps": [
+        {
+          "id": "navigate_production",
+          "description": "Navigate through production constraints",
+          "requires": [],
+          "grants": [
+            "access_production"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Secondary Objective 2",
+      "objective": "Reach the Secondary Objective 2 state: {'moral': 100.0}",
+      "steps": [
+        {
+          "id": "acquire_moral",
+          "description": "Acquire sufficient moral",
+          "requires": [],
+          "grants": [
+            "moral"
+          ]
+        }
+      ]
+    }
+  ]
+}

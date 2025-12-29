@@ -1,0 +1,366 @@
+{
+  "seed": 65537,
+  "title": "Frugal Discovery",
+  "genre": [
+    "procedural",
+    "exploration",
+    "puzzle"
+  ],
+  "version": "2.0",
+  "cosmological_constants": {
+    "primary_dimensions": {
+      "entropy": 0.0852380348022797,
+      "fertility": 0.0897716202766314,
+      "volatility": 0.09441153338157007,
+      "coherence": 0.09915664705781702,
+      "revelation": 0.10400580794892826
+    },
+    "derived_constants": {
+      "resource_constraint": 0.9102283797233686,
+      "emergent_complexity": 0.08979511596411337,
+      "chaos_threshold": 0.009361531093703654,
+      "time_dilation": 0.0,
+      "discovery_rate": 0.0
+    },
+    "categorical": {
+      "energy_regime": "conservation",
+      "information_theory": "fog",
+      "temporal_structure": "steady"
+    }
+  },
+  "framework": {
+    "primary_resource_types": [
+      "flow",
+      "flow"
+    ],
+    "resource_count_min": 1,
+    "resource_count_max": 2,
+    "time_pressure": 0.2,
+    "pacing_variety": 0.8,
+    "information_asymmetry": 0.9,
+    "discovery_importance": 1.0,
+    "mechanic_depth_min": 3,
+    "mechanic_depth_max": 5,
+    "coupling_density": 0.7,
+    "goal_clarity": 0.6,
+    "solution_variety": 0.8,
+    "narrative_emergence": 0.2,
+    "stakes_magnitude": 0.4
+  },
+  "playability_metrics": {
+    "win_rate": 0.0,
+    "strategy_diversity": 1.0,
+    "balance_score": 0.0
+  },
+  "atoms": {
+    "resources": [
+      {
+        "name": "throughput",
+        "resource_type": "flow",
+        "initial": 3.725421997533149,
+        "min": 0.0,
+        "max": 18.627109987665744,
+        "decay_rate": 0.0,
+        "renew_rate": 0.0
+      },
+      {
+        "name": "speed",
+        "resource_type": "flow",
+        "initial": 8.774206722984067,
+        "min": 0.0,
+        "max": 43.871033614920336,
+        "decay_rate": 0.0,
+        "renew_rate": 0.0
+      }
+    ],
+    "boolean_states": [
+      {
+        "name": "debuff_0",
+        "initial": false,
+        "persistence": "session"
+      },
+      {
+        "name": "buff_1",
+        "initial": false,
+        "persistence": "global"
+      },
+      {
+        "name": "key_2",
+        "initial": false,
+        "persistence": "global"
+      },
+      {
+        "name": "flag_3",
+        "initial": false,
+        "persistence": "location"
+      },
+      {
+        "name": "key_4",
+        "initial": false,
+        "persistence": "session"
+      }
+    ],
+    "perception": [
+      {
+        "name": "see_throughput",
+        "observed_property": "throughput",
+        "visibility": "conditional",
+        "precision": "binary",
+        "cost": 0.8959941920510718
+      },
+      {
+        "name": "see_speed",
+        "observed_property": "speed",
+        "visibility": "conditional",
+        "precision": "binary",
+        "cost": 0.8959941920510718
+      }
+    ],
+    "affordances": [
+      {
+        "name": "use_throughput",
+        "requires_resources": {},
+        "grants_resources": {
+          "throughput": -5.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 0.0,
+        "cooldown": 1.0
+      },
+      {
+        "name": "acquire_throughput",
+        "requires_resources": {},
+        "grants_resources": {
+          "throughput": 10.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 1.0,
+        "cooldown": 0.0
+      },
+      {
+        "name": "use_speed",
+        "requires_resources": {},
+        "grants_resources": {
+          "speed": -5.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 0.0,
+        "cooldown": 1.0
+      },
+      {
+        "name": "acquire_speed",
+        "requires_resources": {},
+        "grants_resources": {
+          "speed": 10.0
+        },
+        "requires_state": "set()",
+        "toggles_state": "set()",
+        "duration": 1.0,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_debuff_0",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'debuff_0'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_buff_1",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'buff_1'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_key_2",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'key_2'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_flag_3",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'flag_3'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      },
+      {
+        "name": "toggle_key_4",
+        "requires_resources": {},
+        "grants_resources": {},
+        "requires_state": "set()",
+        "toggles_state": "{'key_4'}",
+        "duration": 0.5,
+        "cooldown": 0.0
+      }
+    ],
+    "feedback": [
+      {
+        "name": "throughput_change",
+        "trigger_type": "on_change",
+        "target_property": "throughput",
+        "modality": "narrative",
+        "intensity": 0.05200290397446413
+      },
+      {
+        "name": "speed_change",
+        "trigger_type": "on_change",
+        "target_property": "speed",
+        "modality": "narrative",
+        "intensity": 0.05200290397446413
+      }
+    ],
+    "transitions": [],
+    "temporals": [
+      {
+        "name": "opportunity_window",
+        "type": "window",
+        "duration": 0.0,
+        "repeats": true,
+        "decay": 0.1
+      }
+    ]
+  },
+  "emergent_system": {
+    "name": "EmergentSystem",
+    "complexity": 0,
+    "is_stable": true,
+    "feedback_loops": [],
+    "attractors": [
+      {
+        "name": "throughput_maximized",
+        "center_state": {
+          "throughput": 18.627109987665744
+        },
+        "basin_depth": 14.901687990132595,
+        "stability": "stable",
+        "reward": 1.0
+      },
+      {
+        "name": "speed_maximized",
+        "center_state": {
+          "speed": 43.871033614920336
+        },
+        "basin_depth": 35.09682689193627,
+        "stability": "stable",
+        "reward": 1.0
+      }
+    ],
+    "critical_events": []
+  },
+  "mechanics": [],
+  "world": {
+    "locations": [
+      {
+        "id": "hub",
+        "name": "Central Hub",
+        "tags": [
+          "safe_zone",
+          "spawn"
+        ],
+        "items": [
+          "throughput",
+          "speed"
+        ],
+        "hazards": []
+      },
+      {
+        "id": "zone_0",
+        "name": "Exploration Zone 0",
+        "tags": [
+          "exploration"
+        ],
+        "items": [],
+        "hazards": [
+          "hazard_throughput"
+        ]
+      },
+      {
+        "id": "zone_1",
+        "name": "Exploration Zone 1",
+        "tags": [
+          "exploration"
+        ],
+        "items": [],
+        "hazards": [
+          "hazard_speed"
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "src": "hub",
+        "dst": "zone_1",
+        "gate": null
+      },
+      {
+        "src": "hub",
+        "dst": "zone_2",
+        "gate": null
+      },
+      {
+        "src": "hub",
+        "dst": "zone_3",
+        "gate": null
+      },
+      {
+        "src": "zone_1",
+        "dst": "zone_2",
+        "gate": null
+      },
+      {
+        "src": "zone_2",
+        "dst": "zone_3",
+        "gate": null
+      },
+      {
+        "src": "zone_3",
+        "dst": "zone_4",
+        "gate": null
+      }
+    ]
+  },
+  "quests": [
+    {
+      "name": "Primary Objective",
+      "objective": "Reach the Primary Objective state: {'speed': 43.871033614920336}",
+      "steps": [
+        {
+          "id": "navigate_speed",
+          "description": "Navigate through speed constraints",
+          "requires": [],
+          "grants": [
+            "access_speed"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Secondary Objective 1",
+      "objective": "Reach the Secondary Objective 1 state: {'speed': 43.871033614920336}",
+      "steps": [
+        {
+          "id": "navigate_speed",
+          "description": "Navigate through speed constraints",
+          "requires": [],
+          "grants": [
+            "access_speed"
+          ]
+        }
+      ]
+    }
+  ]
+}
